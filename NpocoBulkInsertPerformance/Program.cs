@@ -59,9 +59,7 @@ namespace NpocoBulkInsertPerformance
 			{
 				CreatePocoTable (db);
 				db.BeginTransaction ();
-				foreach (var poco in pocoList) {
-					db.Insert (poco);
-				}
+				db.InsertBulk (pocoList);
 				db.CompleteTransaction ();
 			}
 			sw.Stop ();
